@@ -1,0 +1,95 @@
+/*********************
+  photo and video gallery
+*********************/
+#main ul.media {
+    list-style: none outside none;
+    padding: 0 5px;
+}
+#main ul.media li {
+    display: inline-block;
+    padding: 2px;
+	background: none;
+	position: relative;
+	height: 125px;
+}
+#main ul.media li a img {
+    -moz-border-radius: 4px 4px 4px 4px;
+}
+#tip7-title span {
+    float: right;
+    color: #00509D;
+    font-size: 90%;
+}
+#tip7-title b {
+    float: left;
+    color: #00509D;
+}
+
+#fancybox-wrap #fancybox-close {
+    background-image: url("/extension/site/design/site/images/close-sprite-fancy.png");
+    top: -15px;
+    right: -15px;
+    height: 41px;
+    width: 41px;
+}
+#fancybox-wrap #fancybox-left-ico, #fancybox-wrap #fancybox-right-ico {
+    background-image: url("/extension/site/design/site/images/scroller-controls_sprite.png");
+    width: 30px;
+    height: 30px;
+}
+#fancybox-title #tip7-title span,
+#fancybox-title #tip7-title  b  {
+    color: #ff0000;
+}
+
+/*********************
+  subpage-gallery
+*********************/
+.subpage-gallery-container {
+    margin:0 0 0 13px;
+    padding:0;
+}
+.subpage-gallery-container span {
+    position:relative;
+    top:-165px;
+    left:10px;
+    font:bold 11px Arial;
+    color:#ffffff;
+    z-index:1000;
+}
+.subpage-gallery-nav {
+    padding:0 0 0 50px;
+    position:relative;
+    top:-175px;
+    z-index:1000;
+}
+
+.subpage-gallery-nav a {
+    background:url(../images/gallery-nav.png) no-repeat -7px 0px;
+    text-decoration:none;
+    margin:0px 2px;
+    display:inline-block;
+    width:6px;
+    height:12px;
+}
+
+.subpage-gallery-nav a.activeSlide {
+    background-position:0px 0px;
+}
+
+.video-playbutton {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+
+span.caption {
+	position: absolute;
+	bottom: 4px;
+	left: 15px;
+	width: 125px;
+	text-align: center;
+	font-size: 9px;
+	height: 12px;
+	overflow: hidden;
+}
