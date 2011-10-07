@@ -1,0 +1,9 @@
+.subpage-gallery-nav a {
+   display: inline;
+   zoom: 1;
+}
+
+#main ul.media li {
+   display: inline;
+   zoom: 1;
+}

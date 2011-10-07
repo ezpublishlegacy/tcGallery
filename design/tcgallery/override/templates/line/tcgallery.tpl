@@ -2,6 +2,16 @@
 
 {ezcss_require(array('tcgallery.css'))}
 {ezscript_require(array('tcgallery.js'))}
+{def $agent = ezservervars()['HTTP_USER_AGENT']}
+{if $agent|contains('MSIE')}
+	{def $ver = $agent|explode('MSIE')[1]|explode(';')[0]|float()}
+	{if $ver|lt(8)}
+		{ezcss_require(array('tcgallery.ie.css'))}
+	{/if}
+{/if}
+
+
+
 
 {* Gallery - Line view *}
 {def	$title = ''

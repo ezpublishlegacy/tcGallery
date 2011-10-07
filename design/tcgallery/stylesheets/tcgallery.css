@@ -5,6 +5,9 @@
     list-style: none outside none;
     padding: 0 5px;
 }
+.class-tcgallery ul {
+	margin-left: 0px;
+}
 #main ul.media li {
     display: inline-block;
     padding: 2px;

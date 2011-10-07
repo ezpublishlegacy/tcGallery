@@ -11,7 +11,7 @@
 <!-- HTML structures -->
 
 <div class='playerwrap'>
-<iframe id='playerframe' src="{$start_im}" width="682px" height="500px" frameborder="0"></iframe>
+<iframe id='playerframe' src="{$start_im}" width="682px" height="500px" frameborder="0" scrolling="no" onload="$('body', this.contentWindow.document).css('margin', '0px');"></iframe>
 </div>
 
 <!-- "previous page" action -->
