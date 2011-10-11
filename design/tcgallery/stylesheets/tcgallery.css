@@ -3,7 +3,7 @@
 *********************/
 #main ul.media {
     list-style: none outside none;
-    padding: 0 5px;
+    padding: 0 0 0 5px;
 }
 .class-tcgallery ul {
 	margin-left: 0px;

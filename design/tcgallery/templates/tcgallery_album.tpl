@@ -11,7 +11,7 @@
 <!-- HTML structures -->
 
 <div class='playerwrap'>
-<iframe id='playerframe' src="{$start_im}" width="682px" height="500px" frameborder="0" scrolling="no" onload="$('body', this.contentWindow.document).css('margin', '0px');"></iframe>
+<iframe id='playerframe' src="{$start_im}" width="682px" height="500px" frameborder="0" scrolling="no" onload="$('body', this.contentWindow.document).css('margin', '0px').find('img').css({ldelim}'width' : '100%' , height : '100%'{rdelim});"></iframe>
 </div>
 
 <!-- "previous page" action -->
