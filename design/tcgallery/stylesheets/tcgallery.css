@@ -17,6 +17,7 @@
 }
 #main ul.media li a img {
     -moz-border-radius: 4px 4px 4px 4px;
+	display: block;
 }
 #tip7-title span {
     float: right;
@@ -88,9 +89,9 @@
 
 span.caption {
 	position: absolute;
-	bottom: 4px;
-	left: 15px;
-	width: 125px;
+	bottom: 12px;
+	left: 5px;
+	width: 140px;
 	text-align: center;
 	font-size: 9px;
 	height: 12px;

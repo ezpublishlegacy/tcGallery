@@ -3,7 +3,7 @@
 $NodeId = $Params['NodeId'];
 
 require_once('kernel/common/template.php');
-$tpl = templateInit();
+$tpl = eZTemplate::factory();
 $tpl->setVariable('NodeId', $NodeId);
 $content = $tpl->fetch("design:tcgallery_album.tpl");
 $results = array(

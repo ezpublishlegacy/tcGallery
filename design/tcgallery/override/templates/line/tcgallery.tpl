@@ -56,7 +56,7 @@
 						<a class='gallery_im_link' href="/gallery/album/{$i.node_id}" class="group"  name="omni_photo_gallery" rel="{$node.name|explode(' ')[0]|downcase}" title="{$title}">
 							<img width='150px' height='100px' alt='{$title|strip_tags}' title='{$title|strip_tags}' src='{$thumb}'/>
 							{if is_set($i.data_map.image)|not}<img width='150px' height='100px' class="video-playbutton" alt="" src={'images/video-space.png'|ezdesign()} />{/if}
-							<span class='caption'>{$title|strip_tags|shorten(20)}</span>
+							<span class='caption'>{$title|strip_tags|shorten(35)}</span>
 						</a>
 					</li>
 				{/foreach}

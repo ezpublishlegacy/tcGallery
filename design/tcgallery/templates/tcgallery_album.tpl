@@ -23,7 +23,6 @@
    
    <!-- root element for the items -->
    <div class="items">
-	<div>
 	{foreach $ims as $i}
 		{if is_set($i.data_map.image)}
 			{set-block scope=relative variable=title}{attribute_view_gui attribute=$i.data_map.caption}{/set-block}
@@ -40,7 +39,6 @@
 		<span class='imwrap'><img width='155px' height='100px' alt='{$title}' title='{$title}' src='{$thumb}' onclick="swapvids('{$src}')"/>{if is_set($i.data_map.image)|not}<img onclick="swapvids('{$src}')" width='155px' height='100px' class="video-playbutton" alt="" src={'images/video-space.png'|ezdesign()} />{/if}
 		<span class='caption'>{$title|strip_tags|shorten(20)}</span></span>
 	{/foreach}
-	</div>
 	</div>
    
 </div>
