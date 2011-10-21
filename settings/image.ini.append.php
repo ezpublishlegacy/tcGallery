@@ -18,9 +18,9 @@ Filters[]=colorspace=RGB
 
 [tcgallery]
 Filters[]
-Filters[]=geometry/scaleheight=500
+Filters[]=geometry/scaleheight=385
 Filters[]=geometry/scalewidthuponly=682
-Filters[]=centerimg=682;500
+Filters[]=centerimg=682;385
 Filters[]=strip
 Filters[]=colorspace=RGB
 

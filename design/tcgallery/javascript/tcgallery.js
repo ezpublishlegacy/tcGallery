@@ -13,7 +13,7 @@ $('ul.media li a').each(function(){
 		var frame = $("<iframe width='100%' height='100%' src='" + this.getTrigger().attr('href') + "'></iframe>")
 		this.getOverlay().css({
 			'width':'795px',
-			'height':'685px'
+			'height':'550px'
 		}).empty().append(frame).append('<div class="close"></div>')
 		.find('.close').click(function(){
 			api.close();

@@ -12,7 +12,7 @@
 <div id='page_wrap'>
 
 <div class='playerwrap'>
-<iframe id='playerframe' src="{$start_im}" width="682px" height="500px" frameborder="0" scrolling="no" onload="$('body', this.contentWindow.document).css('margin', '0px').find('img').css({ldelim}'width' : '100%' , height : '100%'{rdelim});"></iframe>
+<iframe id='playerframe' src="{$start_im}" width="682px" height="386px" frameborder="0" scrolling="no" onload="resizeme(this)"></iframe>
 </div>
 
 <!-- "previous page" action -->
@@ -36,7 +36,7 @@
 				 $title = $v['title']
 			}
 		{/if}
-		<span class='imwrap'><img width='155px' height='100px' alt='{$title}' title='{$title}' src='{$thumb}' onclick="swapvids('{$src}')"/>{if is_set($i.data_map.image)|not}<img onclick="swapvids('{$src}')" width='155px' height='100px' class="video-playbutton" alt="" src={'images/video-space.png'|ezdesign()} />{/if}
+		<span class='imwrap'><img width='135px' height='100px' alt='{$title}' title='{$title}' src='{$thumb}' onclick="swapvids('{$src}')"/>{if is_set($i.data_map.image)|not}<img onclick="swapvids('{$src}')" width='135px' height='100px' class="video-playbutton" alt="" src={'images/video-space.png'|ezdesign()} />{/if}
 		<span class='caption'>{$title|strip_tags|shorten(20)}</span></span>
 	{/foreach}
 	</div>
@@ -60,6 +60,12 @@ $(function() {
 	$(".scrollable").scrollable();
 
 });
+
+function resizeme(frame){
+	body = $('body', frame.contentWindow.document);
+	if (body.attr('baseURI').indexOf('/gallery/album')) return false;
+	$('body', frame.contentWindow.document).css('margin', '0px').find('img').css({'width' : '100%' , height : '100%'});
+}
 </script>
 
 {/literal}
