@@ -1,4 +1,4 @@
-<?
+<?php
 
 $NodeId = $Params['NodeId'];
 
