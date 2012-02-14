@@ -55,14 +55,54 @@
 		overflow: hidden;
 	}
 	
+	span.caption p {
+		margin: 0px;
+		padding: 0px;
+	}
+	
+	#cap_overlay {
+		position: absolute;
+		top: 365px;
+		z-index: 1000;
+		opacity: .5;
+		background: #CCC;
+		display: block;
+		width: 682px;
+		font-size: 14px;
+		color: black;
+	}
+	
+	#cap_overlay p {
+		padding: 2px 5px;
+		margin: 0px
+	}
+	
+	.playerwrap {
+		position: relative;
+		overflow: hidden;
+		height: 386px;
+		margin-bottom: 10px;
+	}
+	
 	</style>
 	
 	<script type='text/javascript'>
 
-	function swapvids(url) {
+	function swapvids(url, cap) {
 		$("#playerframe").attr("src", url).load();
+		$("#cap_overlay").html(cap)
+		var newt = 365 - ($("#cap_overlay").height() - 21);
 		return true;
 	}
+	
+	$(function(){
+		var newt = 365 - ($("#cap_overlay").height() - 21);
+		$("#cap_overlay").hover(function(){
+			$(this).animate({'top':newt}, 700);
+		}, function(){
+			$(this).animate({'top':365}, 700);
+		})
+	})
 
 	</script>
 	{/literal}
@@ -76,4 +116,3 @@
 
 </html>
 
-{kill_debug()}

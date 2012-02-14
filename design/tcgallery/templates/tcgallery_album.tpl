@@ -2,7 +2,7 @@
 	 $im1 = fetch(content, node, hash(node_id, $NodeId))
 	 $ims = fetch(content, list, hash(parent_node_id, $im1.parent.node_id, sort_by, $im1.parent.sort_array, class_filter_type, 'include', class_filter_array, $im_classes))
 	 $start_im = cond(is_set($im1.data_map.video), concat('http://player.vimeo.com/video/', $im1.data_map.video.content.id), $im1.data_map.image.content['tcgallery'].url|ezroot(no))
-	 $title = ''
+	 $title = cond(is_set($im1.data_map.video), $im1.data_map.video.content.attributes['title'], $im1.data_map.caption.content.output.output_text)
 	 $thumb = ''
 	 $src = ''
 	 $v = array()
@@ -13,6 +13,7 @@
 
 <div class='playerwrap'>
 <iframe id='playerframe' src="{$start_im}" width="682px" height="386px" frameborder="0" scrolling="no" onload="resizeme(this)"></iframe>
+<div id='cap_overlay'>{$title}</div>
 </div>
 
 <!-- "previous page" action -->
@@ -36,8 +37,8 @@
 				 $title = $v['title']
 			}
 		{/if}
-		<span class="imwrap"><img width='135px' height='100px' alt="{$title}" title="{$title}" src='{$thumb}' onclick="swapvids('{$src}')"/>{if is_set($i.data_map.image)|not}<img onclick="swapvids('{$src}')" width='135px' height='100px' class="video-playbutton" alt="" src={'images/video-space.png'|ezdesign()} />{/if}
-		<span class="caption">{$title|strip_tags|shorten(20)}</span></span>
+		<span class="imwrap"><img width='135px' height='100px' alt="{$title}" title="{$title}" src='{$thumb}' onclick='swapvids("{$src}", "{$title|explode("\r")|implode("")|explode("\n")|implode("")}")'/>{if is_set($i.data_map.image)|not}<img onclick='swapvids("{$src}", "{$title|explode("\r")|implode("")|explode("\n")|implode("")}")' width='135px' height='100px' class="video-playbutton" alt="" src={'images/video-space.png'|ezdesign()} />{/if}
+		<span class="caption">{$title|shorten(20)}</span></span>
 	{/foreach}
 	</div>
    
@@ -63,7 +64,7 @@ $(function() {
 
 function resizeme(frame){
 	body = $('body', frame.contentWindow.document);
-	if (body.attr('baseURI').indexOf('/gallery/album')) return false;
+	if (body.attr('baseURI').indexOf('/gallery/album') !== -1) return false;
 	$('body', frame.contentWindow.document).css('margin', '0px').find('img').css({'width' : '100%' , height : '100%'});
 }
 </script>
