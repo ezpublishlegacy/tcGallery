@@ -81,7 +81,7 @@
 		position: relative;
 		overflow: hidden;
 		height: 386px;
-		margin-bottom: 10px;
+		margin-bottom: 5px;
 	}
 	
 	</style>
