@@ -11,8 +11,8 @@ AliasList[]=tcgallery
 [tcgallerythumbnail]
 Filters[]
 Filters[]=geometry/scaleheight=100
-Filters[]=geometry/scalewidthuponly=155
-Filters[]=centerimg=135;100
+Filters[]=geometry/scalewidthuponly=150
+Filters[]=centerimg=150;100
 Filters[]=strip
 Filters[]=colorspace=RGB
 

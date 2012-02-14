@@ -1,6 +1,6 @@
 {def $im_classes = ezini('ClassSettings', 'ImageClasses', 'tcgallery.ini')
 	 $im1 = fetch(content, node, hash(node_id, $NodeId))
-	 $ims = fetch(content, list, hash(parent_node_id, $im1.parent.node_id, class_filter_type, 'include', class_filter_array, $im_classes))
+	 $ims = fetch(content, list, hash(parent_node_id, $im1.parent.node_id, sort_by, $im1.parent.sort_array, class_filter_type, 'include', class_filter_array, $im_classes))
 	 $start_im = cond(is_set($im1.data_map.video), concat('http://player.vimeo.com/video/', $im1.data_map.video.content.id), $im1.data_map.image.content['tcgallery'].url|ezroot(no))
 	 $title = ''
 	 $thumb = ''
@@ -36,8 +36,8 @@
 				 $title = $v['title']
 			}
 		{/if}
-		<span class='imwrap'><img width='135px' height='100px' alt='{$title}' title='{$title}' src='{$thumb}' onclick="swapvids('{$src}')"/>{if is_set($i.data_map.image)|not}<img onclick="swapvids('{$src}')" width='135px' height='100px' class="video-playbutton" alt="" src={'images/video-space.png'|ezdesign()} />{/if}
-		<span class='caption'>{$title|strip_tags|shorten(20)}</span></span>
+		<span class="imwrap"><img width='135px' height='100px' alt="{$title}" title="{$title}" src='{$thumb}' onclick="swapvids('{$src}')"/>{if is_set($i.data_map.image)|not}<img onclick="swapvids('{$src}')" width='135px' height='100px' class="video-playbutton" alt="" src={'images/video-space.png'|ezdesign()} />{/if}
+		<span class="caption">{$title|strip_tags|shorten(20)}</span></span>
 	{/foreach}
 	</div>
    
