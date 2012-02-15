@@ -64,7 +64,7 @@ $(function() {
 
 function resizeme(frame){
 	body = $('body', frame.contentWindow.document);
-	if (body.attr('baseURI').indexOf('/gallery/album') !== -1) return false;
+	if (frame.contentWindow.document.location.href.indexOf('/gallery/album') !== -1) return false;
 	$('body', frame.contentWindow.document).css('margin', '0px').find('img').css({'width' : '100%' , height : '100%'});
 }
 </script>

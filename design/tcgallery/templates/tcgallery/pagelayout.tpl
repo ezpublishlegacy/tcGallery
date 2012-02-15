@@ -63,6 +63,7 @@
 	#cap_overlay {
 		position: absolute;
 		top: 365px;
+		left: 0px;
 		z-index: 1000;
 		opacity: .7;
 		-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
