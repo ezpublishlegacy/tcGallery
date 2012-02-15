@@ -41,7 +41,7 @@
         
 			<ul class="media wide">
 				{foreach $ims as $ik => $i}	
-					<li>
+					<li{if $ik|eq(0)} class='first'{/if}{if $ik|eq($ims|count|sub(1))} class='last'{/if}>
 						{if and(is_set($i.data_map.image), $i.data_map.image.has_content)}
 							{set-block scope=relative variable=title}{attribute_view_gui attribute=$i.data_map.caption}{/set-block}
 							{set $thumb = $i.data_map.image.content['tcgallerythumbnail'].url|ezroot(no)
