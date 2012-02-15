@@ -64,8 +64,12 @@
 		position: absolute;
 		top: 365px;
 		z-index: 1000;
-		opacity: .5;
-		background: #CCC;
+		opacity: .7;
+		-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=70)";
+		filter: alpha(opacity=70);
+		-moz-opacity: 0.7;
+		-khtml-opacity: 0.7;
+		background: #fff;
 		display: block;
 		width: 682px;
 		font-size: 14px;
