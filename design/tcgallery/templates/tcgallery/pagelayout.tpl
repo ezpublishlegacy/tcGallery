@@ -92,18 +92,20 @@
 	</style>
 	
 	<script type='text/javascript'>
+		
+	var tcgal_newt = 0;
 
 	function swapvids(url, cap) {
 		$("#playerframe").attr("src", url).load();
 		$("#cap_overlay").html(cap)
-		var newt = 365 - ($("#cap_overlay").height() - 21);
+		tcgal_newt = 365 - ($("#cap_overlay").height() - 21);
 		return true;
 	}
 	
 	$(function(){
-		var newt = 365 - ($("#cap_overlay").height() - 21);
+		tcgal_newt = 365 - ($("#cap_overlay").height() - 21);
 		$("#cap_overlay").hover(function(){
-			$(this).animate({'top':newt}, 700);
+			$(this).animate({'top':tcgal_newt}, 700);
 		}, function(){
 			$(this).animate({'top':365}, 700);
 		})
