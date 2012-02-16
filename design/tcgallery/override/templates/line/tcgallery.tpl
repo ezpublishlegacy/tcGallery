@@ -2,7 +2,8 @@
 
 {ezcss_require(array('tcgallery.css'))}
 {ezscript_require(array('tcgallery.js'))}
-{def $agent = ezservervars()['HTTP_USER_AGENT']}
+{def $agent = ezservervars()['HTTP_USER_AGENT']
+     $lc = ezini('GallerySettings', 'LineCount', 'tcgallery.ini')}
 {if $agent|contains('MSIE')}
 	{def $ver = $agent|explode('MSIE')[1]|explode(';')[0]|float()}
 	{if $ver|lt(8)}
@@ -60,7 +61,7 @@
 						</a>
 					</li>
 					
-					{if $ik|sum(1)|mod(5)|eq(0)}<div class='gal_break'></div>{/if}
+					{if $ik|sum(1)|mod($lc)|eq(0)}<div class='gal_break'></div>{/if}
 				{/foreach}
 			</ul>
 
