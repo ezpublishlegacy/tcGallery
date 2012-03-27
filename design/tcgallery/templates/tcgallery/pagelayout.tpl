@@ -8,11 +8,11 @@
 	 
 
 	<!-- standalone page styling (can be removed) -->
-	<link rel="stylesheet" type="text/css" href="http://static.flowplayer.org/tools/css/standalone.css"/>	
+	<link rel="stylesheet" type="text/css" href="/extension/tcgallery/design/tcgallery/stylesheets/standalone.css"/>	
 
 
-	<link rel="stylesheet" type="text/css" href="http://static.flowplayer.org/tools/css/scrollable-horizontal.css" />
-	<link rel="stylesheet" type="text/css" href="http://static.flowplayer.org/tools/css/scrollable-buttons.css" />
+	<link rel="stylesheet" type="text/css" href="/extension/tcgallery/design/tcgallery/stylesheets/scrollable-horizontal.css" />
+	<link rel="stylesheet" type="text/css" href="/extension/tcgallery/design/tcgallery/stylesheets/scrollable-buttons.css" />
 	<link rel="stylesheet" type="text/css" href={"stylesheets/tcgallery.box.custom.css"|ezdesign} />
 	
 	{literal}
