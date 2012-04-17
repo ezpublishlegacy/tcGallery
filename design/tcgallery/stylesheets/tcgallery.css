@@ -47,6 +47,16 @@
     color: #ff0000;
 }
 
+.overlay .close {
+background-image: url(../images/close_blue.png);
+position: absolute;
+right: -15px;
+top: -15px;
+cursor: pointer;
+height: 35px;
+width: 35px;
+}
+
 /*********************
   subpage-gallery
 *********************/

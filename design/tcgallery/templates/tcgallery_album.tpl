@@ -38,7 +38,7 @@
 			}
 		{/if}
 		<span class="imwrap"><img width='135px' height='100px' alt="{$title|strip_tags()}" title="{$title|strip_tags()}" src='{$thumb}' onclick="swapvids('{$src}', '{$title|addslashes()|explode("\r")|implode("")|explode("\n")|implode("")}')"/>{if is_set($i.data_map.image)|not}<img onclick="swapvids('{$src}', '{$title|addslashes()|explode("\r")|implode("")|explode("\n")|implode("")}')" width='135px' height='100px' class="video-playbutton" alt="" src={'images/video-space.png'|ezdesign()} />{/if}
-		<span class="caption">{$title|addslashes()|strip_tags()|shorten(20)}</span></span>
+		<span class="caption">{$title|strip_tags()|htmlspecialchars|shorten(20)}</span></span>
 	{/foreach}
 	</div>
    
