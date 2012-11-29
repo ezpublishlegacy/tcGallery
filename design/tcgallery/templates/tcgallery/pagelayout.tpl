@@ -22,7 +22,7 @@
 		padding: 10px 0px!important;
 	}
 	
-	.playerwrap {
+	#playerwrap {
 		margin-left: 40px;
 	}
 	
@@ -62,7 +62,7 @@
 	
 	#cap_overlay {
 		position: absolute;
-		top: 365px;
+		top: 465px;
 		left: 0px;
 		z-index: 1000;
 		opacity: .7;
@@ -77,16 +77,25 @@
 		color: black;
 	}
 	
+	#cap_overlay.tcgallery_tall {
+		top: 486px;
+	}
+	
 	#cap_overlay p {
 		padding: 2px 5px;
 		margin: 0px
 	}
 	
-	.playerwrap {
+	#playerwrap {
 		position: relative;
 		overflow: hidden;
-		height: 386px;
-		margin-bottom: 5px;
+		height: 436px;
+		margin-bottom: 75px
+	}
+	
+	#playerwrap.tcgallery_tall {
+		height: 486px;
+		margin-bottom: 25px
 	}
 	
 	</style>
@@ -97,17 +106,26 @@
 
 	function swapvids(url, cap) {
 		$("#playerframe").attr("src", url).load();
+		diff = (url.indexOf('_tall') > 0) ? 150 : 50;
+		if (diff == 150) {
+			$("#cap_overlay").attr('className', 'tcgallery_tall');
+			$("#playerwrap").attr('className', 'tcgallery_tall');
+		} else {
+			$("#cap_overlay").attr('className', 'tcgallery');
+			$("#playerwrap").attr('className', 'tcgallery');
+		}
 		$("#cap_overlay").html(cap)
-		tcgal_newt = 365 - ($("#cap_overlay").height() - 21);
+		tcgal_newt = diff + 365 - ($("#cap_overlay").height() - 21);
 		return true;
 	}
 	
 	$(function(){
-		tcgal_newt = 365 - ($("#cap_overlay").height() - 21);
-		$("#cap_overlay").hover(function(){
-			$(this).animate({'top':tcgal_newt}, 700);
+		diff = ($("#cap_overlay").attr('className') == 'tcgallery_tall') ? 150 : 50;
+		tcgal_newt = diff + 365 - ($("#cap_overlay").height() - 21);
+		$("#playerframe").hover(function(){
+			$("#cap_overlay").animate({'top':tcgal_newt}, 700);
 		}, function(){
-			$(this).animate({'top':365}, 700);
+			$("#cap_overlay").animate({'top': diff + 365 + $("#cap_overlay").height() + 21}, 700);
 		})
 	})
 
@@ -124,4 +142,5 @@
 </html>
 
 {kill_debug()}
+{production_only()}
 

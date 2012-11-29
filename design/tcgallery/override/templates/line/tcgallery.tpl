@@ -3,6 +3,7 @@
 {ezcss_require(array('tcgallery.css'))}
 {ezscript_require(array('tcgallery.js'))}
 {def $agent = ezservervars()['HTTP_USER_AGENT']
+	 $im_al = 'tcgallerythumbnail'
      $lc = ezini('GallerySettings', 'LineCount', 'tcgallery.ini')}
 {if $agent|contains('MSIE')}
 	{def $ver = $agent|explode('MSIE')[1]|explode(';')[0]|float()}
@@ -42,11 +43,12 @@
         
 			<ul class="media wide">
 				{foreach $ims as $ik => $i}	
+				{set $im_al = cond($i.data_map.image.content.original.height|gt($i.data_map.image.content.original.width), 'tcgallerythumbnail_tall', 'tcgallerythumbnail')}
 					<li{if or($ik|eq(0), $ik|mod($lc)|eq(0))} class='first'{/if}{if $ik|sum(1)|mod($lc)|eq(0)} class='last'{/if}>
 						{if and(is_set($i.data_map.image), $i.data_map.image.has_content)}
 							{set-block scope=relative variable=title}{attribute_view_gui attribute=$i.data_map.caption}{/set-block}
-							{set $thumb = $i.data_map.image.content['tcgallerythumbnail'].url|ezroot(no)
-								 $src = $i.data_map.image.content['tcgallery'].url|ezroot(no)
+							{set $thumb = $i.data_map.image.content[$im_al].url|ezroot(no)
+								 $src = $i.data_map.image.content[$im_al|explode('thumbnail')|implode('')].url|ezroot(no)
 							}
 						{else}
 							{set $v = $i.data_map.video.content.attributes
@@ -55,8 +57,8 @@
 							}
 						{/if}
 						<a class="gallery_im_link" href="/gallery/album/{$i.node_id}" class="group"  name="omni_photo_gallery" rel="{$node.name|explode(' ')[0]|downcase}" title="{$title|strip_tags}">
-							<img width="150px" height="100px" alt="{$title|strip_tags}" title="{$title|strip_tags}" src="{$thumb}"/>
-							{if is_set($i.data_map.image)|not}<img width="150px" height="100px" class="video-playbutton" alt="" src={'images/video-space.png'|ezdesign()} />{/if}
+							<img {cond($im_al|eq('tcgallerythumbnail'), '', 'style="padding-left: 20px" ')} width="{cond($im_al|eq('tcgallerythumbnail'), '150px', '100px')}" height="{cond($im_al|eq('tcgallerythumbnail'), '100px', '150px')}" alt="{$title|strip_tags}" title="{$title|strip_tags}" src="{$thumb}"/>
+							{if is_set($i.data_map.image)|not}<img width="{cond($im_al|eq('tcgallerythumbnail'), '150px', '100px')}" height="{cond($im_al|eq('tcgallerythumbnail'), '100px', '150px')}" class="video-playbutton" alt="" src={'images/video-space.png'|ezdesign()} />{/if}
 							<span class="caption">{$title|strip_tags}</span>
 						</a>
 					</li>
