@@ -114,4 +114,8 @@ span.caption {
 	width: 100%;
 }
 
+#site-overlay {
+	position: absolute!important;
+}
+
 
