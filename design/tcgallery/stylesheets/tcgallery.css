@@ -15,6 +15,7 @@
 	position: relative;
 	height: auto;
 	float: left;
+	width: 150px;
 }
 #pagewrap ul.media li a img {
     -moz-border-radius: 4px 4px 4px 4px;

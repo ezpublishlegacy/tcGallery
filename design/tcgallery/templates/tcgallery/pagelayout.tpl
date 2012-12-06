@@ -106,8 +106,8 @@
 
 	function swapvids(url, cap) {
 		$("#playerframe").attr("src", url).load();
-		diff = (url.indexOf('_tall') > 0) ? 150 : 50;
-		if (diff == 150) {
+		diff = (url.indexOf('_tall') > 0) ? 100 : 50;
+		if (diff == 100) {
 			$("#cap_overlay").attr('className', 'tcgallery_tall');
 			$("#playerwrap").attr('className', 'tcgallery_tall');
 		} else {
@@ -115,18 +115,29 @@
 			$("#playerwrap").attr('className', 'tcgallery');
 		}
 		$("#cap_overlay").html(cap)
-		tcgal_newt = diff + 365 - ($("#cap_overlay").height() - 21);
+		$("#playerframe").unbind('hover');
+		caphover();
 		return true;
 	}
 	
-	$(function(){
-		diff = ($("#cap_overlay").attr('className') == 'tcgallery_tall') ? 150 : 50;
+	function caphover() {
+		diff = ($("#cap_overlay").attr('className') == 'tcgallery_tall') ? 100 : 50;
 		tcgal_newt = diff + 365 - ($("#cap_overlay").height() - 21);
+		$("#cap_overlay").css('top', tcgal_newt + 21 + 'px');
+		if (diff == 100) {
+			$("#cap_overlay").css('padding-left', 150 + 'px');
+		} else {
+			$("#cap_overlay").css('padding-left', 0 + 'px');
+		}
 		$("#playerframe").hover(function(){
-			$("#cap_overlay").animate({'top':tcgal_newt}, 700);
+			$("#cap_overlay").animate({'top': tcgal_newt}, 700);
 		}, function(){
-			$("#cap_overlay").animate({'top': diff + 365 + $("#cap_overlay").height() + 21}, 700);
+			$("#cap_overlay").animate({'top': tcgal_newt + 21}, 700);
 		})
+	}
+	
+	$(function(){
+		caphover();
 	})
 
 	</script>
