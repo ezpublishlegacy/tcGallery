@@ -57,7 +57,7 @@
 							}
 						{/if}
 						<a class="gallery_im_link" href="/gallery/album/{$i.node_id}" class="group"  name="omni_photo_gallery" rel="{$node.name|explode(' ')[0]|downcase}" title="{$title|strip_tags}">
-							<img {cond($im_al|eq('tcgallerythumbnail'), '', 'style="padding-left: 20px" ')} width="{cond($im_al|eq('tcgallerythumbnail'), '150px', '100px')}" height="{cond($im_al|eq('tcgallerythumbnail'), '100px', '150px')}" alt="{$title|strip_tags}" title="{$title|strip_tags}" src="{$thumb}"/>
+							<img class='{$im_al}' {cond($im_al|eq('tcgallerythumbnail'), '', 'style="padding-left: 20px" ')} width="{cond($im_al|eq('tcgallerythumbnail'), '150px', '100px')}" height="{cond($im_al|eq('tcgallerythumbnail'), '100px', '150px')}" alt="{$title|strip_tags}" title="{$title|strip_tags}" src="{$thumb}"/>
 							{if is_set($i.data_map.image)|not}<img width="{cond($im_al|eq('tcgallerythumbnail'), '150px', '100px')}" height="{cond($im_al|eq('tcgallerythumbnail'), '100px', '150px')}" class="video-playbutton" alt="" src={'images/video-space.png'|ezdesign()} />{/if}
 							<span class="caption">{$title|strip_tags}</span>
 						</a>

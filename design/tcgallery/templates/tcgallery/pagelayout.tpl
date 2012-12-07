@@ -62,7 +62,7 @@
 	
 	#cap_overlay {
 		position: absolute;
-		top: 465px;
+		bottom: 0px;
 		left: 0px;
 		z-index: 1000;
 		opacity: .7;
@@ -71,14 +71,10 @@
 		-moz-opacity: 0.7;
 		-khtml-opacity: 0.7;
 		background: #fff;
-		display: block;
+		display: none;
 		width: 682px;
 		font-size: 14px;
 		color: black;
-	}
-	
-	#cap_overlay.tcgallery_tall {
-		top: 486px;
 	}
 	
 	#cap_overlay p {
@@ -114,25 +110,23 @@
 			$("#cap_overlay").attr('className', 'tcgallery');
 			$("#playerwrap").attr('className', 'tcgallery');
 		}
-		$("#cap_overlay").html(cap)
 		$("#playerframe").unbind('hover');
+		$("#cap_overlay").html(cap).css('display', 'none');
 		caphover();
 		return true;
 	}
 	
 	function caphover() {
 		diff = ($("#cap_overlay").attr('className') == 'tcgallery_tall') ? 100 : 50;
-		tcgal_newt = diff + 365 - ($("#cap_overlay").height() - 21);
-		$("#cap_overlay").css('top', tcgal_newt + 21 + 'px');
 		if (diff == 100) {
-			$("#cap_overlay").css('padding-left', 150 + 'px');
+			$("#cap_overlay").css({'padding-left': 150 + 'px', 'width' : '382px'});
 		} else {
-			$("#cap_overlay").css('padding-left', 0 + 'px');
+			$("#cap_overlay").css({'padding-left': 0 + 'px', 'width' : '682px'});
 		}
 		$("#playerframe").hover(function(){
-			$("#cap_overlay").animate({'top': tcgal_newt}, 700);
+			$("#cap_overlay").show();
 		}, function(){
-			$("#cap_overlay").animate({'top': tcgal_newt + 21}, 700);
+			$("#cap_overlay").hide();
 		})
 	}
 	
