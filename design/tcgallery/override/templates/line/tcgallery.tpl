@@ -65,6 +65,7 @@
 					
 					{if $ik|sum(1)|mod($lc)|eq(0)}<div class='gal_break'></div>{/if}
 				{/foreach}
+				{if $ik|sum(1)|mod($lc)|ne(0)}<div class='gal_break'></div>{/if}
 			</ul>
 
         
